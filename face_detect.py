@@ -1,6 +1,7 @@
 
 # 出典URL：https://office54.net/python/opencv/movie-face-authentication
 
+import streamlit as st
 import cv2
 
 # 学習済みモデルの読み込み
