@@ -5,11 +5,14 @@
 #出典：https://qiita.com/G-awa/items/477f2324552cb908ecd0
 
 import cv2
+import  streamlit as st
 import boto3
-import stramlit
 from botocore.config import Config
 config = Config(region_name='ap-northeast-1')
 s3 = boto3.client('s3', config=config)
+#print(s3)
+
+st.write('顔認識')
 
 # スケールや色などの設定
 scale_factor = .15
