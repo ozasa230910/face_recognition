@@ -6,7 +6,9 @@
 
 import cv2
 import boto3
-s3 = boto3.client('s3', region_name='ap-northeast-1')
+from botocore.config import Config
+config = Config(region_name='ap-northeast-1')
+s3 = boto3.client('s3', config=config)
 
 # スケールや色などの設定
 scale_factor = .15
