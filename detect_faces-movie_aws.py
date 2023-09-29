@@ -13,6 +13,8 @@ s3 = boto3.client('s3', config=config)
 #print(s3)
 
 st.write('顔認識')
+region ='ap-northeast-1'
+#print(region)
 
 # スケールや色などの設定
 scale_factor = .15
