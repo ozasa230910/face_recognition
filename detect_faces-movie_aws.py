@@ -6,6 +6,7 @@
 
 import cv2
 import boto3
+import stramlit
 from botocore.config import Config
 config = Config(region_name='ap-northeast-1')
 s3 = boto3.client('s3', config=config)
