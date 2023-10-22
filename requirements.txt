@@ -1,4 +1,3 @@
-insightface== 0.7.3
-opencv-python== 4.8.1.78
+insightface==0.7.3
+opencv-python==4.8.1.78
 dlib==19.24.2
-
