@@ -3,7 +3,7 @@ import insightface
 import cv2
 
 #タイトル
-st.write('insightfaceを使用して顔認識（性別、年齢、感情）を表示する')
+st.title('insightfaceを使用して顔認識（性別、年齢、感情）を表示する')
 
 # Initialize the insightface model
 model = insightface.app.FaceAnalysis()
@@ -71,6 +71,11 @@ for idx, face in enumerate(faces):
 	cv2.putText(img, f"Age: {face.age}", org, fontFace, fontScale, color, thickness)
 	org = (10, 60)
 	cv2.putText(img, f"Emotion: {face.emotion}", org, fontFace, fontScale, color, thickness)
+
+# 画像を表示
+
+cv2.imshow('img', img)
+cv2.waitKey(0)
 
 # 画像を表示
 
