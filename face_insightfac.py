@@ -1,5 +1,9 @@
+import streamlit as st
 import insightface
 import cv2
+
+#タイトル
+st.write('insightfaceを使用して顔認識（性別、年齢、感情）を表示する')
 
 # Initialize the insightface model
 model = insightface.app.FaceAnalysis()
