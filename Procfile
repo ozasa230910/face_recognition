@@ -1,1 +1,0 @@
-web: python face_insightfac.py runserver %PORT%
