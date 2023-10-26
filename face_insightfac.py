@@ -36,11 +36,11 @@ ret, frame = video_capture.read()
 
 # Save the captured image
 
-cv2.imwrite('captured_image.jpg', frame)
+cv2.imwrite('./captured_image.jpg', frame)
 
 # Load the image
 
-img = cv2.imread('captured_image.jpg')
+img = cv2.imread('./captured_image.jpg')
 
 # Perform face analysis
 
