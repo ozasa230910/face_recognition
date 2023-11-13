@@ -61,9 +61,9 @@ if uploaded_image is not None:
                 text_position = (left, top)
 
                 # 日本語の描画
-                draw.text(text_position, f"性別: {gender}", font=font, fill="white")
-                draw.text((text_position[0], text_position[1] + 20), f"年齢: {age_low}-{age_high} 歳", font=font, fill="white")
-                draw.text((text_position[0], text_position[1] + 40), f"感情: {emotion}", font=font, fill="white")
+                draw.text(text_position, f"Gender: {gender}", font=font, fill="white")
+                draw.text((text_position[0], text_position[1] + 20), f"Age: {age_low}-{age_high} ", font=font, fill="white")
+                draw.text((text_position[0], text_position[1] + 40), f"Emotion: {emotion}", font=font, fill="white")
 
             # 描画された画像を表示
             st.image(image, caption="解析結果", use_column_width=True)
