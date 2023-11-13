@@ -78,8 +78,3 @@ if uploaded_image is not None:
 else:
     # 画像がアップロードされていない場合
     st.info("画像がアップロードされていません。")
-
-    except NoCredentialsError:
-        st.error("AWSの認証情報が正しく設定されていません。")
-    except Exception as e:
-        st.error(f"エラーが発生しました: {e}")
