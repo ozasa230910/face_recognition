@@ -38,10 +38,11 @@ if uploaded_image is not None:
         if response['FaceDetails']:
             # 顔の情報を取得
             for i, face in enumerate(response['FaceDetails']):
-                gender = face['Gender']['Value']
-                age_low = face['AgeRange']['Low']
-                age_high = face['AgeRange']['High']
-                emotion = face['Emotions'][0]['Type']
+                # 日本語の文字列を文字コード「UTF-8」でエンコードする
+                gender = face['Gender']['Value'].encode('utf-8')
+                age_low = face['AgeRange']['Low'].encode('utf-8')
+                age_high = face['AgeRange']['High'].encode('utf-8')
+                emotion = face['Emotions'][0]['Type'].encode('utf-8')
 
                 # 顔の位置を取得
                 bounding_box = face['BoundingBox']
@@ -59,9 +60,9 @@ if uploaded_image is not None:
                 text_position = (left, top)
 
                 # 日本語の描画
-                draw.text(text_position, f"性別: {gender}", font=font, fill="white")
-                draw.text((text_position[0], text_position[1] + 20), f"年齢: {age_low}-{age_high} 歳", font=font, fill="white")
-                draw.text((text_position[0], text_position[1] + 40), f"感情: {emotion}", font=font, fill="white")
+                draw.text(text_position, f"性別: {gender}".decode('utf-8'), font=font, fill="white")
+                draw.text((text_position[0], text_position[1] + 20), f"年齢: {age_low}-{age_high} 歳".decode('utf-8'), font=font, fill="white")
+                draw.text((text_position[0], text_position[1] + 40), f"感情: {emotion}".decode('utf-8'), font=font, fill="white")
 
             # 描画された画像を表示
             st.image(image, caption="解析結果", use_column_width=True)
@@ -72,4 +73,3 @@ if uploaded_image is not None:
         st.error("AWSの認証情報が正しく設定されていません。")
     except Exception as e:
         st.error(f"エラーが発生しました: {e}")
-
