@@ -54,9 +54,8 @@ if uploaded_image is not None:
                 # 画像に情報を描画
                 draw = ImageDraw.Draw(image)
 
-                # 日本語に対応したフォントを指定
-                font_path = "C:/Windows/Fonts/meiryo.ttc"  # 例としてメイリオを指定
-                font = ImageFont.truetype(font_path, 18)  # フォントサイズは適宜変更
+                # 代替のフォントを使用
+                font = ImageFont.load_default()
 
                 text_position = (left, top)
 
@@ -74,3 +73,4 @@ if uploaded_image is not None:
         st.error("AWSの認証情報が正しく設定されていません。")
     except Exception as e:
         st.error(f"エラーが発生しました: {e}")
+
