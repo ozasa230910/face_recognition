@@ -60,7 +60,7 @@ if uploaded_image is not None:
 
                 text_position = (left, top)
 
-                # 日本語の描画
+                # 日本語の描画-cannot open resourceエラーになるので英語表記にした
                 draw.text(text_position, f"Gender: {gender}", font=font, fill="white")
                 draw.text((text_position[0], text_position[1] + 20), f"Age: {age_low}-{age_high} ", font=font, fill="white")
                 draw.text((text_position[0], text_position[1] + 40), f"Emotion: {emotion}", font=font, fill="white")
