@@ -3,8 +3,15 @@ import boto3
 from PIL import Image, ImageDraw, ImageFont
 from botocore.exceptions import NoCredentialsError
 
+# AWSの認証情報を設定
+aws_access_key_id = "AKIAWYMK2ENNUZCMN64I"
+aws_secret_access_key = "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"
+
 # AWS Rekognitionの設定
-rekognition = boto3.client('rekognition', region_name='ap-northeast-1')
+rekognition = boto3.client('rekognition',
+                          region_name='ap-northeast-1',
+                          aws_access_key_id=aws_access_key_id,
+                          aws_secret_access_key=aws_secret_access_key)
 
 # Streamlitアプリケーションの設定
 st.title("AWS Rekognition 顔認識")
@@ -64,6 +71,6 @@ if uploaded_image is not None:
             st.warning("アップロードされた画像に顔が検出されませんでした。")
 
     except NoCredentialsError:
-        st.error("AWSの認証情報が見つかりません。正しい認証情報を設定してください。")
+        st.error("AWSの認証情報が正しく設定されていません。")
     except Exception as e:
         st.error(f"エラーが発生しました: {e}")
