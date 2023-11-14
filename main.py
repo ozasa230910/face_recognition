@@ -2,12 +2,14 @@ import streamlit as st
 import boto3
 from PIL import Image, ImageDraw, ImageFont
 from botocore.exceptions import NoCredentialsError
-import io
+import json
 
 # AWSの認証情報を設定
-aws_access_key_id = "AKIAWYMK2ENNUZCMN64I"
-aws_secret_access_key = "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"
+with open('aws_key.json') as f:
+    credentials = json.load(f)
 
+aws_access_key_id = credentials['aws_access_key_id']
+aws_secret_access_key = credentials['aws_secret_access_key']
 # AWS Rekognitionの設定
 rekognition = boto3.client('rekognition',
                           region_name='ap-northeast-1',
