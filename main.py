@@ -55,8 +55,8 @@ if uploaded_image is not None:
                 draw = ImageDraw.Draw(image)
 
                 # 日本語に対応したフォントを指定
-                font_path = "C:/Windows/Fonts/meiryo.ttc"  # 例としてメイリオを指定
-                font = ImageFont.truetype(font_path, 18)  # フォントサイズは適宜変更
+                #font_path = "C:/Windows/Fonts/meiryo.ttc"  # 例としてメイリオを指定
+                #font = ImageFont.truetype(font_path, 18)  # フォントサイズは適宜変更
 
                 text_position = (left, top)
 
