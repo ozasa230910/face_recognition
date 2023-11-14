@@ -3,6 +3,7 @@ import boto3
 from PIL import Image, ImageDraw, ImageFont
 from botocore.exceptions import NoCredentialsError
 import json
+import io
 
 # AWSの認証情報を設定
 with open('aws_key.json') as f:
