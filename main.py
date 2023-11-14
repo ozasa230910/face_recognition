@@ -2,6 +2,7 @@ import streamlit as st
 import boto3
 from PIL import Image, ImageDraw, ImageFont
 from botocore.exceptions import NoCredentialsError
+import io
 
 # AWSの認証情報を設定
 aws_access_key_id = "AKIAWYMK2ENNUZCMN64I"
@@ -22,7 +23,7 @@ uploaded_image = st.file_uploader("画像を選択してください...", type=[
 if uploaded_image is not None:
     try:
         # 画像を表示
-        image = Image.open(uploaded_image)
+        image = Image.open(io.BytesIO(uploaded_image.getvalue()))
         st.image(image, caption="アップロードされた画像", use_column_width=True)
 
         # Rekognitionで顔認識を実行
@@ -52,18 +53,21 @@ if uploaded_image is not None:
                 )
 
                 # 画像に情報を描画
+
+
+
                 draw = ImageDraw.Draw(image)
 
                 # 日本語に対応したフォントを指定
-                #font_path = "C:/Windows/Fonts/meiryo.ttc"  # 例としてメイリオを指定
-                #font = ImageFont.truetype(font_path, 18)  # フォントサイズは適宜変更
+                font_path = "C:/Windows/Fonts/meiryo.ttc"  # 例としてメイリオを指定
+                font = ImageFont.truetype(font_path, 18)  # フォントサイズは適宜変更
 
                 text_position = (left, top)
 
-                # 日本語の描画-cannot open resourceエラーになるので英語表記にした
-                draw.text(text_position, f"Gender: {gender}", font=font, fill="white")
-                draw.text((text_position[0], text_position[1] + 20), f"Age: {age_low}-{age_high} ", font=font, fill="white")
-                draw.text((text_position[0], text_position[1] + 40), f"Emotion: {emotion}", font=font, fill="white")
+                # 日本語の描画
+                draw.text(text_position, f"性別: {gender}", font=font, fill="white")
+                draw.text((text_position[0], text_position[1] + 20), f"年齢: {age_low}-{age_high} 歳", font=font, fill="white")
+                draw.text((text_position[0], text_position[1] + 40), f"感情: {emotion}", font=font, fill="white")
 
             # 描画された画像を表示
             st.image(image, caption="解析結果", use_column_width=True)
