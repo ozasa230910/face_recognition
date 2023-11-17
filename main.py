@@ -10,13 +10,8 @@ import json
 import io
 
 # AWSの認証情報を設定
-'''
 with open('aws_key.json') as f:
     credentials = json.load(f)
-'''
-with open('C:/Users/ozasa/secret.json') as f:
-    secret_json = json.load(f)
-
 aws_access_key_id = credentials['aws_access_key_id']
 aws_secret_access_key = credentials['aws_secret_access_key']
 # AWS Rekognitionの設定
